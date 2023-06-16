@@ -47,7 +47,7 @@ if st.button("ทำนายผล"):
     x_input = np.array([[pt_len, pt_wd, sp_len, sp_wd]])
     st.write(Knn_model.predict(x_input))
    
-   out=Knn_model.predict(x_input)
+    out=Knn_model.predict(x_input)
 
    if out[0] == 'Setosa':
     st.image("./pic/iris1.jpg")
