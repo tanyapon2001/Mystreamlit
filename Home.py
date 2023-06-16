@@ -82,3 +82,5 @@ if st.button("ทำนายผล"):
     st.image("./pic/iris3.jpg")
 else:
     st.write("ไม่ทำนาย")
+
+    st.write("ผู้จัดทำโดย เทิดศักดิ์ ใจสอาด")
