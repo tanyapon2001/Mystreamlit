@@ -1,5 +1,10 @@
+from sklearn.neighbors import KNeighborsClassifier
 import streamlit as st
-
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import plotly.express as px
+import plotly.graph_objects as go
 
 st.header('therdsak')
 st.image("./pic/toomtam1.jpg")
@@ -33,6 +38,22 @@ sp_len = st.number_input("กรุณาเลือกข้อมูล sepal
 sp_wd = st.number_input("กรุณาเลือกข้อมูล sepal.width")
 
 if st.button("ทำนายผล"):
-    st.write("ทำนาย")
-else:
+    #st.write("ทำนาย")
+    dt = pd.read_csv("./data/iris.csv")
+    X = dt.drop('variety', axis=1)
+    y = dt.variety
+    Knn_model = KNeighborsClassifier(n_neighbors=3)
+    Knn_model.fit(X, y)   
+    x_input = np.array([[pt_len, pt_wd, sp_len, sp_wd]])
+    st.write(Knn_model.predict(x_input))
+   
+   out=Knn_model.predict(x_input)
+
+   if out[0] == 'Setosa':
+    st.image("./pic/iris1.jpg")
+   elif: out[0] == 'Versicolor':
+    st.image("./pic/iris2.jpg")
+    else:
+    st.image("./pic/iris3.jpg")
+else:  
     st.write("ไม่ทำนาย")
